@@ -152,13 +152,19 @@ EF_UST_map = {
 	126: 'UAC Access Identities support',
 	127: 'Expect control plane-based Steering of Roaming information during initial registration in VPLMN',
 	128: 'Call control on PDU Session by USIM',
+	129: '5GS Operator PLMN List',
+	130: 'Support for SUPI of type NSI or GLI or GCI',
+	132: 'Support for URSP by USIM',
+	133: '5G Security Parameters extended',
+	134: 'MuD and MiD configuration data',
+	135: 'Support for Trusted non-3GPP access networks by USIM',
 }
 
 LOCI_STATUS_map = {
 	0:	'updated',
 	1:	'not updated',
 	2:	'plmn not allowed',
-	3:	'locatation area not allowed'
+	3:	'location area not allowed'
 }
 
 EF_USIM_ADF_map = {
