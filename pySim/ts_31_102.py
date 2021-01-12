@@ -263,6 +263,14 @@ EF_USIM_ADF_map = {
 	'ePDGSelection': '6FF4',
 	'ePDGIdEm': '6FF5',
 	'ePDGSelectionEm': '6FF6',
+	'FromPreferred': '6FF7',
+	'IMSConfigData': '6FF8',
+	'TVCONFIG': '6FFB',
+	'3GPPPSDataOff': '6FF9',
+	'3GPPPSDATAOFFservicelist': '6FFA',
+	'XCAPConfigData': '6FFC',
+	'EARCNList': '6FFD',
+	'MuDMiDConfigData': '6FFE',
 }
 
 ######################################################################
