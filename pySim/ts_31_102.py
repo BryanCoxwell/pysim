@@ -309,15 +309,14 @@ class ADF_USIM(CardADF):
           EF_xPLMNwAcT('6f60', 0x0a, 'EF.PLMNwAcT',
                        'User controlled PLMN Selector with Access Technology'),
           TransparentEF('6f31', 0x12, 'EF.HPPLMN', 'Higher Priprity PLMN search period'),
-          # EF.ACMmax
-          # EF.UST
-          # EF.ACM
+		  TransparentEF('6f37', None, 'EF.ACMmax', 'ACM maximum value'),
+		  TransparentEF('6f38', 0x04, 'EF.UST', 'USIM Service Table'),
           CyclicEF('6f39', None, 'EF.ACM', 'Accumulated call meter', rec_len={3,3}),
           TransparentEF('6f3e', None, 'EF.GID1', 'Group Identifier Level 1'),
           TransparentEF('6f3f', None, 'EF.GID2', 'Group Identifier Level 2'),
           EF_SPN(),
           TransparentEF('6f41', None, 'EF.PUCT', 'Price per unit and currency table', size={5,5}),
-          EF_CBMI(),
+          EF_CBMI(), # left off here
           EF_ACC(sfid=0x06),
           EF_PLMNsel('6f7b', 0x0d, 'EF.FPLMN', 'Forbidden PLMNs', size={12,None}),
           TransparentEF('6f7e', 0x0b, 'EF.LOCI', 'Locationn information', size={11,11}),
