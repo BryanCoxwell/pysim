@@ -285,7 +285,7 @@ EF_USIM_ADF_map = {
 
 from pySim.filesystem import *
 from pySim.ts_51_011 import EF_IMSI, EF_xPLMNwAcT, EF_SPN, EF_CBMI, EF_ACC, EF_PLMNsel, EF_AD
-from pySim.ts_51_011 import EF_CBMID, EF_ECC, EF_CBMIR
+from pySim.ts_51_011 import EF_CBMID, EF_ECC, EF_CBMIR, EF_MSISDN, EF_SMSP
 
 import pySim.ts_102_221
 
@@ -316,14 +316,24 @@ class ADF_USIM(CardADF):
           TransparentEF('6f3f', None, 'EF.GID2', 'Group Identifier Level 2'),
           EF_SPN(),
           TransparentEF('6f41', None, 'EF.PUCT', 'Price per unit and currency table', size={5,5}),
-          EF_CBMI(), # left off here
+          EF_CBMI(),
           EF_ACC(sfid=0x06),
           EF_PLMNsel('6f7b', 0x0d, 'EF.FPLMN', 'Forbidden PLMNs', size={12,None}),
-          TransparentEF('6f7e', 0x0b, 'EF.LOCI', 'Locationn information', size={11,11}),
+          TransparentEF('6f7e', 0x0b, 'EF.LOCI', 'Location information', size={11,11}),
           EF_AD(sfid=0x03),
           EF_CBMID(sfid=0x0e),
           EF_ECC(sfid=0x01),
           EF_CBMIR(),
+		  TransparentEF('6f73', 0x0c, 'EF.PSLOCI', size={14,14}, desc='Packet Switched Location Information'),
+		  LinFixedEF('6f3b', None, 'EF.FDN', desc='Fixed Dialling Numbers'),
+		  LinFixedEF('6f3c', None, 'EF.SMS', desc='Short messages'),
+		  EF_MSISDN('6f40'),
+		  EF_SMSP(),
+		  TransparentEF('6f43', None, 'EF.SMSS', desc='SMS Status'),
+		  LinFixedEF('6f49', None, 'EF.SDN', desc='Service Dialing Numbers'),
+		  LinFixedEF('6f4b', None, 'EF.EXT2', size={13,13}, desc='Extension2'),
+		  LinFixedEF('6f4c', None, 'EF.EXT3', size={13,13}, desc='Extension3'),
+
           ]
         self.add_files(files)
 
